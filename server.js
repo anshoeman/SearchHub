@@ -7,7 +7,7 @@ const passport = require("passport");
 connectDB();
 const PORT = process.env.PORT || 5000;
 require("./config/passport")(passport);
-app.set("view engine", "ejs");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,5 +34,7 @@ app.use((req, res, next) => {
 
 app.use(require("./routes/index"));
 app.use(require("./routes/user"));
+
+app.set('view engine', 'ejs');
 
 app.listen(PORT, () => console.log(`Server Started at port ${PORT}`));
