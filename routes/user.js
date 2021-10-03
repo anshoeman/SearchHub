@@ -6,18 +6,18 @@ const passport = require("passport");
 const nodemailer = require("nodemailer");
 const { ensureAuth, forwardAuth } = require("../config/auth");
 
-router.get('/about',(req,res)=>{
+router.get('/about',ensureAuth,(req,res)=>{
     res.render('About')
 })
 
-router.get("/users/login", (req, res) => {
+router.get("/users/login",(req, res) => {
   res.render("login");
 });
-router.get("/users/register", (req, res) => {
+router.get("/users/register",ensureAuth,(req, res) => {
   res.render("signup");
 });
 
-router.get("/Profiles", (req, res) => {
+router.get("/Profiles", ensureAuth,(req, res) => {
   res.render("Search");
 });
 
